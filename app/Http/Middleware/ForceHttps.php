@@ -10,7 +10,8 @@ class ForceHttps
     public function handle(Request $request, Closure $next)
     {
         if ($request->header('X-Forwarded-Proto') !== 'https') {
-            return redirect()->secure($request->getRequestUri());
+            return $next($request);
+            ;
         }
         return $next($request);
     }
