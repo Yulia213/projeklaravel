@@ -11,7 +11,6 @@ class ForceHttps
     {
         if ($request->header('X-Forwarded-Proto') !== 'https') {
             return $next($request);
-            ;
         }
         return $next($request);
     }
